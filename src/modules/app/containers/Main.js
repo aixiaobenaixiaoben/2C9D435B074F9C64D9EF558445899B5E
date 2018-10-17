@@ -7,34 +7,14 @@ import {connect} from "react-redux"
 import PropTypes from "prop-types"
 import * as actions from "../actions/Main"
 import './styles/Main.less'
+import Home from "./Home"
+import Feedback from "./Feedback"
+import About from "./About"
+import NotFound from "./NotFound"
 
 const {Header, Content, Footer} = Layout
 
-const home = () => {
-  return (
-    <p>home</p>
-  )
-}
-
-const about = () => {
-  return (
-    <p>about</p>
-  )
-}
-
-const topic = () => {
-  return (
-    <p>topic</p>
-  )
-}
-
-const noMatch = () => {
-  return (
-    <p>404 not found</p>
-  )
-}
-
-class Main extends Component {
+class Main extends Component<any, any> {
 
   onPress = () => {
     this.props.setName(new Date().toLocaleString('zh-CN', {hour12: false}))
@@ -46,9 +26,9 @@ class Main extends Component {
     let menuIndex = ''
     if (pathname === '/') {
       menuIndex = '1'
-    } else if (pathname === '/about') {
+    } else if (pathname === '/feedback') {
       menuIndex = '2'
-    } else if (pathname === '/topics') {
+    } else if (pathname === '/about') {
       menuIndex = '3'
     }
 
@@ -64,10 +44,10 @@ class Main extends Component {
                 <Link to="/">首页</Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <Link to="/about">反馈</Link>
+                <Link to="/feedback">反馈</Link>
               </Menu.Item>
               <Menu.Item key="3">
-                <Link to="/topics">关于</Link>
+                <Link to="/about">关于</Link>
               </Menu.Item>
             </Menu>
           </Header>
@@ -76,10 +56,10 @@ class Main extends Component {
             <div className='content-div'>
 
               <Switch>
-                <Route exact path="/" component={home}/>
-                <Route path="/about" component={about}/>
-                <Route path="/topics" component={topic}/>
-                <Route component={noMatch}/>
+                <Route exact path="/" component={Home}/>
+                <Route path="/feedback" component={Feedback}/>
+                <Route path="/about" component={About}/>
+                <Route component={NotFound}/>
               </Switch>
 
               <p>variable: {name}</p>
