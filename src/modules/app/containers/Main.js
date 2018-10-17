@@ -1,7 +1,11 @@
 /** @flow */
 import React, {Component} from "react"
-import {Layout, Menu} from 'antd'
+import {Button, Layout, Menu} from 'antd'
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
+import {Dispatch} from "redux"
+import {connect} from "react-redux"
+import PropTypes from "prop-types"
+import * as actions from "../actions/Main"
 import './styles/Main.less'
 
 const {Header, Content, Footer} = Layout
@@ -32,7 +36,13 @@ const noMatch = () => {
 
 class Main extends Component {
 
+  onPress = () => {
+    this.props.setName(new Date().toLocaleString('zh-CN', {hour12: false}))
+  }
+
   render() {
+    const {name} = this.props
+
     return (
       <Router>
         <Layout>
@@ -63,6 +73,9 @@ class Main extends Component {
                 <Route component={noMatch}/>
               </Switch>
 
+              <p>variable: {name}</p>
+              <Button type='primary' size='large' onClick={this.onPress}>button</Button>
+
             </div>
           </Content>
 
@@ -76,5 +89,17 @@ class Main extends Component {
   }
 }
 
-export default Main
+Main.propTypes = {
+  name: PropTypes.string.isRequired,
+  setName: PropTypes.func.isRequired,
+}
+
+export default connect(
+  state => ({
+    name: state.app.app.name,
+  }),
+  (dispatch: Dispatch<*>) => ({
+    setName: (name) => dispatch(actions.setName(name)),
+  })
+)(Main)
 
