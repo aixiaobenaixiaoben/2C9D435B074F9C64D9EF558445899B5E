@@ -41,7 +41,16 @@ class Main extends Component {
   }
 
   render() {
-    const {name} = this.props
+    const {name, location} = this.props
+    const {pathname} = location
+    let menuIndex = ''
+    if (pathname === '/') {
+      menuIndex = '1'
+    } else if (pathname === '/about') {
+      menuIndex = '2'
+    } else if (pathname === '/topics') {
+      menuIndex = '3'
+    }
 
     return (
       <Router>
@@ -50,7 +59,7 @@ class Main extends Component {
           <Header className="header">
             <div className="logo"/>
 
-            <Menu className="menu" theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+            <Menu className="menu" theme="dark" mode="horizontal" defaultSelectedKeys={[menuIndex]}>
               <Menu.Item key="1">
                 <Link to="/">首页</Link>
               </Menu.Item>
