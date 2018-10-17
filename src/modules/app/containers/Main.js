@@ -11,6 +11,7 @@ import Home from "./Home"
 import Feedback from "./Feedback"
 import About from "./About"
 import NotFound from "./NotFound"
+import logo from '../../../logo.svg'
 
 const {Header, Content, Footer} = Layout
 
@@ -37,7 +38,7 @@ class Main extends Component<any, any> {
         <Layout>
 
           <Header className="header">
-            <div className="logo"/>
+            <img src={logo} className="App-logo" alt="logo"/>
 
             <Menu className="menu" theme="dark" mode="horizontal" defaultSelectedKeys={[menuIndex]}>
               <Menu.Item key="1">
