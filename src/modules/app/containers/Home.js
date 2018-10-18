@@ -12,7 +12,7 @@ class Home extends Component<any, any> {
     return (
       <div className='home'>
         <QRCode value={url} size={256} fgColor={PRIMARY_COLOR}/>
-        <br/>
+        <p>iOS版本下载</p>
         <br/>
         <p>回忆未来是一个工具类app</p>
         <p>她是一个日记本</p>
