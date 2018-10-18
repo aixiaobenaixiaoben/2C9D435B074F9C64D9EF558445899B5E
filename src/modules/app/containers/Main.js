@@ -39,6 +39,7 @@ class Main extends Component<any, any> {
 
           <Header className="header">
             <img src={logo} className="App-logo" alt="logo"/>
+            <p className='brand'>回忆未来</p>
 
             <Menu className="menu" theme="dark" mode="horizontal" defaultSelectedKeys={[menuIndex]}>
               <Menu.Item key="1">
