@@ -1,11 +1,7 @@
 /** @flow */
 import React, {Component} from "react"
-import {Button, Layout, Menu} from 'antd'
+import {Layout, Menu} from 'antd'
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
-import {Dispatch} from "redux"
-import {connect} from "react-redux"
-import PropTypes from "prop-types"
-import * as actions from "../actions/Main"
 import './styles/Main.less'
 import Home from "./Home"
 import Feedback from "./Feedback"
@@ -17,13 +13,8 @@ const {Header, Content, Footer} = Layout
 
 class Main extends Component<any, any> {
 
-  onPress = () => {
-    this.props.setName(new Date().toLocaleString('zh-CN', {hour12: false}))
-  }
-
   render() {
-    const {name, location} = this.props
-    const {pathname} = location
+    const {pathname} = this.props.location
     let menuIndex = ''
     if (pathname === '/') {
       menuIndex = '1'
@@ -66,9 +57,6 @@ class Main extends Component<any, any> {
                 <Route component={NotFound}/>
               </Switch>
 
-              <p>variable: {name}</p>
-              <Button type='primary' size='large' onClick={this.onPress}>button</Button>
-
             </div>
           </Content>
 
@@ -82,17 +70,5 @@ class Main extends Component<any, any> {
   }
 }
 
-Main.propTypes = {
-  name: PropTypes.string.isRequired,
-  setName: PropTypes.func.isRequired,
-}
-
-export default connect(
-  state => ({
-    name: state.app.app.name,
-  }),
-  (dispatch: Dispatch<*>) => ({
-    setName: (name) => dispatch(actions.setName(name)),
-  })
-)(Main)
+export default Main
 

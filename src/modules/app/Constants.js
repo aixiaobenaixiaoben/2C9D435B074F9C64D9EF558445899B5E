@@ -14,7 +14,6 @@ export type ActionAsync = (dispatch: Function, getState: Function) => void
 export const DURATION_MOBILE_CODE_EXPIRED = 120
 
 /** action types */
-export const ACTION_HOME = `${NAME}/ACTION_HOME`
 export const ACTION_HOME_SUC = `${NAME}/ACTION_HOME_SUC`
 
 export const ACTION_ABOUT_SUC = `${NAME}/ACTION_ABOUT_SUC`
