@@ -9,7 +9,7 @@ import {
 } from "../Constants"
 
 
-export const feedbackCaptchaSend = (data): ActionAsync => {
+export const feedbackCaptchaSend = (data: Object): ActionAsync => {
   return (dispatch, getState) => {
 
     dispatch({type: ACTION_FEEDBACK_CAPTCHA_SEND, payload: data})
@@ -25,7 +25,7 @@ export const feedbackCaptchaSend = (data): ActionAsync => {
   }
 }
 
-export const feedback = (data): ActionAsync => {
+export const feedback = (data: Object): ActionAsync => {
   return (dispatch, getState) => {
     dispatch({type: ACTION_FEEDBACK_SUC})
   }
