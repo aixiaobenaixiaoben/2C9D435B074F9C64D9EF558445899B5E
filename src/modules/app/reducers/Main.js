@@ -1,6 +1,6 @@
 /** @flow */
 import {handleActions} from "redux-actions"
-import {ACTION_HOME} from "../Constant"
+import {ACTION_HOME} from "../Constants"
 
 
 type State = {

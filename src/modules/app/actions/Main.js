@@ -1,6 +1,6 @@
 /** @flow */
-import type {Action} from "../Constant"
-import {ACTION_HOME} from "../Constant"
+import type {Action} from "../Constants"
+import {ACTION_HOME} from "../Constants"
 
 
 export const setName = (name: string): Action => {
