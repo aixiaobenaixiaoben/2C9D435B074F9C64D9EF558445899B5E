@@ -68,7 +68,7 @@ class Main extends Component<any, any> {
           </Content>
 
           <Footer className='footer'>
-            Ant Design ©2018 Created by LI RUIFENG
+            回忆未来 ©2018 Created by LI RUIFENG
           </Footer>
 
         </Layout>
