@@ -6,6 +6,7 @@ import './styles/Main.less'
 import Home from "./Home"
 import Feedback from "./Feedback"
 import About from "./About"
+import Privacy from "./Privacy"
 import NotFound from "./NotFound"
 import logo from '../../../logo.svg'
 
@@ -22,6 +23,8 @@ class Main extends Component<any, any> {
       menuIndex = '2'
     } else if (pathname === '/about') {
       menuIndex = '3'
+    } else if (pathname === '/privacy') {
+      menuIndex = '4'
     }
 
     return (
@@ -41,6 +44,9 @@ class Main extends Component<any, any> {
               <Menu.Item key="2">
                 <Link to="/feedback">反馈</Link>
               </Menu.Item>
+              <Menu.Item key="4">
+                <Link to="/privacy">隐私</Link>
+              </Menu.Item>
               <Menu.Item key="3">
                 <Link to="/about">关于</Link>
               </Menu.Item>
@@ -53,6 +59,7 @@ class Main extends Component<any, any> {
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route path="/feedback" component={Feedback}/>
+                <Route path="/privacy" component={Privacy}/>
                 <Route path="/about" component={About}/>
                 <Route component={NotFound}/>
               </Switch>
