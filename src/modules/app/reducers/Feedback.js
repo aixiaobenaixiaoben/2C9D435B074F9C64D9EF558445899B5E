@@ -3,6 +3,7 @@ import {handleActions} from "redux-actions"
 import {
   ACTION_FEEDBACK_CAPTCHA_COUNT,
   ACTION_FEEDBACK_CAPTCHA_SEND,
+  ACTION_FEEDBACK_FAIL,
   ACTION_FEEDBACK_RESET,
   ACTION_FEEDBACK_SUC,
   DURATION_MOBILE_CODE_EXPIRED
@@ -13,12 +14,14 @@ type State = {
   isFeedbackSuc: boolean,
   mobile: string,
   count: number,
+  version: number,
 }
 
 const initialState: State = {
   isFeedbackSuc: false,
   mobile: '',
   count: -1,
+  version: 0,
 }
 
 export default handleActions(
@@ -41,6 +44,12 @@ export default handleActions(
       return {
         ...state,
         isFeedbackSuc: true,
+      }
+    },
+    [ACTION_FEEDBACK_FAIL]: (state: State, action) => {
+      return {
+        ...state,
+        version: Date.now(),
       }
     },
     [ACTION_FEEDBACK_RESET]: (state: State, action) => {

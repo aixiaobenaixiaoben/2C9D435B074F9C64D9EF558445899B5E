@@ -29,7 +29,9 @@ class Feedback extends Component<any, any> {
           this.props.feedbackReset()
         }
       })
-      return false
+    }
+    if (this.props.version !== nextProps.version) {
+      this.setState({loading: false})
     }
     return true
   }
@@ -143,7 +145,11 @@ class Feedback extends Component<any, any> {
         </FormItem>
 
         <FormItem {...this.tailFormItemLayout()}>
-          <Button type="primary" htmlType="submit" loading={loading}>提交</Button>
+          <Row gutter={8}>
+            <Col span={12}>
+              <Button block type="primary" htmlType="submit" loading={loading}>提交</Button>
+            </Col>
+          </Row>
         </FormItem>
       </Form>
     )
@@ -154,6 +160,7 @@ Feedback.propTypes = {
   isFeedbackSuc: PropTypes.bool.isRequired,
   mobile: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
+  version: PropTypes.number.isRequired,
   feedbackCaptchaSend: PropTypes.func.isRequired,
   feedback: PropTypes.func.isRequired,
   feedbackReset: PropTypes.func.isRequired,
@@ -165,6 +172,7 @@ export default Form.create()(
       isFeedbackSuc: state.app.feedback.isFeedbackSuc,
       mobile: state.app.feedback.mobile,
       count: state.app.feedback.count,
+      version: state.app.feedback.version,
     }),
     dispatch => ({
       feedbackCaptchaSend: (data) => dispatch(actions.feedbackCaptchaSend(data)),

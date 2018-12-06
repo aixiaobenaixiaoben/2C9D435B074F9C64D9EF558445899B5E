@@ -26,6 +26,7 @@ class Main extends Component<any, any> {
     } else if (pathname === '/privacy') {
       menuIndex = '4'
     }
+    const year = new Date().getFullYear()
 
     return (
       <Router>
@@ -68,7 +69,7 @@ class Main extends Component<any, any> {
           </Content>
 
           <Footer className='footer'>
-            回忆未来 ©2018 Created by LI RUIFENG
+            回忆未来 ©{year} Created by LI RUIFENG
           </Footer>
 
         </Layout>
