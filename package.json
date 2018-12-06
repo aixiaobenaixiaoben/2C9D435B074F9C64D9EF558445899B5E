@@ -40,5 +40,6 @@
   ],
   "devDependencies": {
     "flow-bin": "^0.83.0"
-  }
+  },
+  "homepage": "."
 }

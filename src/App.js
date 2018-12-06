@@ -10,7 +10,7 @@ import {app} from './modules'
 import createStore from './createStore'
 import {BrowserRouter as Router, Route} from "react-router-dom"
 
-Request.defaults.baseURL = 'https://forfreedomandlove.com'
+Request.defaults.baseURL = 'https://forfreedomandlove.com/snow/'
 
 Request.interceptors.request.use(
   function (config) {
